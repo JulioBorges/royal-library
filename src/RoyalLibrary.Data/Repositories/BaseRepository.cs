@@ -17,7 +17,7 @@ namespace RoyalLibrary.Data.Repositories
 
         public virtual IQueryable<TEntity> GetQuery()
         {
-            return _dbSet;
+            return _dbSet.AsNoTracking();
         }
 
         public async Task<IEnumerable<TEntity>> QueryToListAsync(IQueryable<TEntity> query)
