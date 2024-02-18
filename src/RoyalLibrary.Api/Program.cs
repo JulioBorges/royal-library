@@ -1,9 +1,25 @@
+using Microsoft.EntityFrameworkCore;
+using RoyalLibrary.Core.Repositories;
+using RoyalLibrary.Data;
+using RoyalLibrary.Data.Repositories;
+using RoyalLibrary.Domain;
+using RoyalLibrary.Services;
+using RoyalLibrary.Services.Base;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connectionString = builder.Configuration.GetConnectionString("BookContext") ?? "Data Source=Books.db";
+
+builder.Services.AddScoped<IRepository<Book>, BooksRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
+
+builder.Services.AddDbContext<BookContext>(
+        options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
@@ -16,29 +32,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+app.MapGet("/books/{field}/{value}", (string field, string value, IBookService service) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    return service.SearchBooks(field, value);
 })
-.WithName("GetWeatherForecast")
+.WithName("GetBooks")
 .WithOpenApi();
 
 app.Run();
-
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

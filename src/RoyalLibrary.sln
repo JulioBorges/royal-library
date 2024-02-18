@@ -5,11 +5,13 @@ VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoyalLibrary.Api", "RoyalLibrary.Api\RoyalLibrary.Api.csproj", "{4E0617C7-6F62-4793-B71E-BCEB2488901D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoyalLibrary.Data", "RoyalLibrary.Data\RoyalLibrary.Data.csproj", "{CAFF29B2-341D-499F-9681-9E36CDEEE98F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoyalLibrary.Data", "RoyalLibrary.Data\RoyalLibrary.Data.csproj", "{CAFF29B2-341D-499F-9681-9E36CDEEE98F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoyalLibrary.Services", "RoyalLibrary.Repositories\RoyalLibrary.Services.csproj", "{DF3C5589-3C3F-44DC-B72B-78BC4F176AA8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoyalLibrary.Core", "RoyalLibrary.Core\RoyalLibrary.Core.csproj", "{24D0F92A-3A23-47E0-94BE-5C26F6AEAC57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoyalLibrary.Domain", "RoyalLibrary.Domain\RoyalLibrary.Domain.csproj", "{F3D5E698-0815-48DA-8AB7-FAA0F574B578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{24D0F92A-3A23-47E0-94BE-5C26F6AEAC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D0F92A-3A23-47E0-94BE-5C26F6AEAC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D0F92A-3A23-47E0-94BE-5C26F6AEAC57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3D5E698-0815-48DA-8AB7-FAA0F574B578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3D5E698-0815-48DA-8AB7-FAA0F574B578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3D5E698-0815-48DA-8AB7-FAA0F574B578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3D5E698-0815-48DA-8AB7-FAA0F574B578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

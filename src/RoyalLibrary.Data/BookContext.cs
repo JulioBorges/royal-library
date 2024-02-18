@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RoyalLibrary.Domain;
 
 namespace RoyalLibrary.Data
 {
@@ -8,5 +9,7 @@ namespace RoyalLibrary.Data
             : base(options)
         {
         }
+
+        public DbSet<Book> Books { get; set; }
     }
 }
